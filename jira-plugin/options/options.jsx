@@ -47,7 +47,8 @@ async function saveOptions() {
   }
 
   if (granted) {
-    await storageSet({instanceUrl, domains, v15upgrade: true});
+    const hoverEnabled = document.getElementById('hoverEnabled').checked;
+    await storageSet({instanceUrl, domains, v15upgrade: true, hoverEnabled});
     resetDeclarativeMapping();
     status.innerHTML = '<br />Options <strong>saved.</strong>';
     setTimeout(function () {
@@ -97,6 +98,14 @@ function ConfigPage(props) {
         <textarea id="domains" defaultValue={props.domains && props.domains.join(', ')} placeholder="1 site per line"/>
         <br/>
         You can also add new domains at any time by clicking on the extension icon !
+      </label>
+      <br/>
+      <label style={{display: 'flex', alignItems: 'center', gap: '8px', margin: '10px 0'}}>
+        <input
+          id="hoverEnabled"
+          type="checkbox"
+          defaultChecked={props.hoverEnabled}/>
+        Enable hover tooltip preview (shows Jira ticket details on mouseover)
       </label>
       <div id='status'></div>
       <br/>

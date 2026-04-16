@@ -24,6 +24,7 @@
   "permissions": [
     "activeTab",
     "declarativeContent",
+    "scripting",
     "storage"
   ],
   "options_ui": {

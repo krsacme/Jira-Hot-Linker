@@ -3,6 +3,7 @@ export default {
     'https://github.com/'
   ],
   instanceUrl: '',
-  v15upgrade: false
+  v15upgrade: false,
+  hoverEnabled: false
 };
 
